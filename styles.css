@@ -1,7 +1,643 @@
 /* Place your CSS styles in this file */
+/* ==========================================================================================================================
+                COLOR PALETTE
+============================================================================================================================= */
+:root {
+    --brand-blue: #56B4E9;
+    --brand-dark-blue: #0072B2;
+    --brand-dark-text: #333333;
+    --brand-orange: #FFB00D;
+    --brand-white: #FFFFFF;
+}
 
-h1 {
+/* ==========================================================================================================================
+                GOOGLE FONTS
+============================================================================================================================= */
+
+.figtree-700 {                                      /* Change anything after "-" to make a unique version, then change the details below */
+    font-family: "Figtree", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;                               /* custom font-weight */
+    font-style: normal; 
+    }
+
+
+/* ==========================================================================================================================
+                    HTML
+============================================================================================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;                         /* Makes sizing elements much easier later on */
+}
+
+
+/* ==========================================================================================================================
+                    BODY
+============================================================================================================================= */
+body {
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+
+}
+
+@media (min-width: 1024px) {
+    body {
+        min-width: 475px;
+    }
+}
+
+
+/* ==========================================================================================================================
+                    HEADER
+============================================================================================================================= */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 2%;
+    background-color: var(--brand-white);
+    position: sticky;                               /* REQUIRED for z-index to work */
+    top: 0;                                         /* REQUIRED to tell position where to stick */
+    z-index: 10;                                    /* Higher z-index to float above the Video Banner */
+}
+
+.logo {
+    flex: 0 1 340px;
+    display: flex;
+    justify-content: flex-start;                    /* Keeps the image pinned to the left edge */
+    align-items: center;                            /* Vertically centers the image */
+}
+
+#opua-logo {
+    height: clamp(50px, 7vw, 75px);
+    width: auto;
+    display: block;
+    margin: 10px 0;
+}
+
+/* LOGO - MOBILE OVERRIDE */
+@media (max-width: 768px) {
+    .logo {
+        flex: initial;              
+    }
+}
+
+/* ---------------------------------------------- 
+    Hamburger Button Default (Hidden on Desktop) 
+------------------------------------------------- */
+.hamburger {
+    display: none;                                  /* Hidden on large screens by default */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    gap: 5px;                                       /* Space between the three lines */
+    flex-direction: column;
+    margin-left: auto;                              /* Keeps the Harmburger Menu to the Right */
+}  
+
+.hamburger .bar {                                   /* The three lines of the hamburger */
+    width: 25px;
+    height: 3px;
+    background-color: var(--brand-dark-text); 
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;               /* Transition smoothly eases from Hamburger to X button and back */
+}
+
+/* ---- THE 'X' ANIMATION (When the menu is open) ---- */
+
+/* 1. Top Line: Moves down 8px and rotates */
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+/* 2. Middle Line: Fades away completely */
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0; 
+}
+
+/* 3. Bottom Line: Moves up 8px and rotates the opposite way */
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ----------------- 
+    Navbar Creation
+-------------------- */
+/* NAVBAR - DESKTOP SETUP */
+.navbar {
+    flex: 0 1 auto;
+    padding: 0 20px;
+}
+
+.mobile-only-phone {
+    color: var(--brand-blue);
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.navbar a {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--brand-dark-text);
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: var(--brand-blue);
+}
+
+.navbar a:active {
+    color: var(--brand-blue);
+}
+
+.navbar ul {
+    list-style-type: none;                          /* Removes default bullet points */
+    margin: 0;                                      /* Removes default browser spacing */
+    padding: 0;                                     /* Removes default browser spacing */
+    display: flex;                                  /* Turns the list into a flexible row */
+    justify-content: center;                        /* Centers links horizontally */
+    gap: 24px;                                      /* Adds clean spacing between the links */
+}
+
+/* HEADER [header, hamburger, navbar] - MOBILE OVERRIDE */
+@media (max-width: 895px) {
+    .site-header {
+        display: flex;                              /* Switches back to Flexbox for mobile menu layout! */
+        justify-content: space-between;
+    }
+    .hamburger {
+        display: flex;                              /* Turn the hamburger button back on! */
+        margin-left: 0;
+    }
+
+    .navbar ul {
+        display: none;                              /* 1. Hides the horizontal flex row */
+        flex-direction: column;                     /* 2. Changes the layout to stack vertically */
+        
+        position: absolute;                         /* 3. Pulls menu out of the header so it can drop down */
+        top: 100%;                                  /* 4. Pushes it directly underneath the header */
+        left: 0;
+        width: 100%;
+        background-color: var(--brand-white);
+        text-align: center;
+        padding: 10px 0;
+        box-shadow: 0px 16px 16px rgba(0,0,0,0.3); /* Adds a shadow so it pops off the video banner */
+    }
+
+    .navbar ul li {
+        margin: 5px 0;                               /* Give the vertical links a little breathing room on phones */
+    }
+
+
+    .navbar ul.active {                              /* This is the class the JavaScript adds to turn the menu back on! */
+        display: flex; 
+    }
+
+    .mobile-only-phone {
+        display: block;                              /* Turns the phone number back on! */
+        margin-top: 15px !important;                 /* Pushes it down from the other links */
+        padding-top: 15px;                           /* Adds space above the text */
+        border-top: 2px solid #f4f4f4;             /* Creates a clean divider line */
+    }
+    .mobile-only-phone a:hover,
+    .mobile-only-phone a:active {
+        color: var(--brand-dark-blue) !important;
+    }
+}
+
+
+/* ----------------- 
+    Header Actions
+-------------------- */
+/* HEADER ACTIONS DIV - DESKTOP SET UP */
+.header-actions {
+    flex: 0 1 340px;
+    display: flex;
+    justify-content: flex-end;                      /* Pins the buttons to the right edge of the page */
+    align-items: center;
+    gap: 20px;                                      /* Space between phone number and Book Now button */
+}
+
+/* HEADER ACTIONS DIV - MOBILE OVERRIDE */
+@media (max-width: 768px) {
+    .header-actions {
+        flex: initial;                              /* Turns off the "spring" effect for mobile */
+        justify-content: center;                    /* Resets the alignment */
+        
+        margin-left: auto;       
+        margin-right: 15px;      
+        gap: 10px;               
+    }
+}
+
+@media (max-width:895px) {
+    .header-actions {
+        margin-left: auto;                          /* Pushes both the actions AND the hamburger to the right! */
+        margin-right: 15px;                         /* Adds a little breathing room between the Book button and the Hamburger */
+        gap: 10px;                                  /* Shrinks the gap between the phone and button for mobile */
+    }
+}
+
+
+/* HEADER PHONE - DESKTOP SETUP */
+.header-phone {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--brand-dark-text);
+    text-align: right;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.header-phone:hover {
+    color: var(--brand-blue);
+}
+
+
+/* HEADER PHONE - MOBILE OVERRIDE */
+@media (max-width: 1120px) {
+    .header-phone {
+        display: none;
+    }
+}
+
+
+/* HEADER BOOK NOW - DESKTOP SETUP */
+.header-book {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    background-color: var(--brand-blue);
+    border: none;
+    border-radius: 25px;
+    padding: 16px 36px;
+    margin: 10px 0px;
     text-align: center;
-    font-family: "Source Sans Pro", sans-serif;
-    font-weight: normal;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.header-book:hover {
+    background-color: var(--brand-dark-blue);
+}
+
+/* HEADER BOOK NOW - MOBILE OVERRIDE */
+@media (max-width: 420px) {
+    .header-book {
+        display: none;
+    }
+}
+
+/* ==========================================================================================================================
+                VIDEO BANNER
+============================================================================================================================= */
+/* --------------------------------------------------------------------------------------------
+   1. Main Container -- This div holds the video and text content and defines the visible area
+----------------------------------------------------------------------------------------------- */         
+.video-container {
+    position: relative;
+    display: flex;                                 /* Flexbox for fluid centering and fluid height */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 60vh;                              /* Minimum 60% of viewport height */     
+    padding: 30px 20px;                             /* Padding ensures the text doesn't touch the top or bottom */
+    overflow: hidden;
+}
+/* ---------------------------------------------------------------------------------
+    2. Video Wrapper -- This div sits behind the text content and holds the iframe
+------------------------------------------------------------------------------------ */ 
+.vimeo-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;                           /* Prevents user interaction with the video */
+    z-index: -1;                                    /* Lower z-index to stay in background */
+}
+/* ----------------------
+    3. iFrame Styling
+------------------------- */
+.vimeo-background iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: 177.77vh;
+    height: 56.25vw;
+}
+/* -------------------------------
+    4. Black Background Overlay 
+---------------------------------- */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0,0.45);
+    pointer-events: none;                           /* Prevents user interaction with the video */
+    z-index: 0; 
+}
+/* -------------------------
+    5. Text Content Styles 
+---------------------------- */
+/* BANNER - DESKTOP SETUP */
+.banner-content {
+    position: relative;
+    width:100%;
+    color: var(--brand-white);
+    text-align: center;
+    z-index: 2;
+}
+
+.banner-content h1 {
+    font-family: "Figtree-700", sans-serif;
+    font-size: clamp(22px, 6vw, 44px);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1.2;                               /* Relative line-height that scales with the font */
+    color: var(--brand-white);
+    margin: 36px 16px;
+}
+
+.banner-content p {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1.6px;
+    line-height: 24px;
+    color: var(--brand-white);
+    margin: 0px 18px;
+}
+.banner-content p b {
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+/* BANNER - MOBILE OVERRIDES */
+@media (min-width:320px) {
+    .hide-at-320 {
+        display: none;
+    }
+}
+@media (min-width:1125px) {
+    .hide-at-1125 {
+        display: none;
+    }
+}
+
+/* LISTS - DESKTOP SETUP */
+.activity-list li {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1.6px;
+    line-height: 24px;
+    color: #FFFFFF;
+    margin: 0px 18px;
+}
+
+.check-list li {
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--brand-white);
+    margin: 0px 12px;
+    text-align: center;
+}
+
+.activity-list ul,
+.check-list ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* LISTS - MOBILE OVERRIDE */
+@media (max-width: 980px) {
+    .activity-list ul,
+    .check-list ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}
+
+/* BUTTONS - DESKTOP SETUP */
+.book-button,
+.call-button {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--brand-white);
+    background-color: var(--brand-blue);
+    border: none;
+    border-radius: 25px;
+    padding: 16px 36px;
+    margin: 36px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.book-button:hover,
+.call-button:hover {
+    background-color: var(--brand-dark-blue);
+}
+
+.bookmark-icon {
+    color: var(--brand-orange);
+    height: 16px;
+    vertical-align: -6px;
+}
+
+/* BUTTONS - MOBILE OVERRIDE */
+@media (max-width: 600px) {
+    .book-button,
+    .call-button {
+        padding: 15px 16px;
+    }
+}
+@media (max-width:415px) {
+    .book-and-call-buttons {
+        margin: 16px 8px;
+    }
+    .book-button,
+    .call-button {
+        margin: 8px 8px;
+    }
+}
+
+/* --------------------------------------
+6. Flite Authorized Partner Image Style 
+----------------------------------------- */
+#flite-authorized-partner {
+    width: 50%;
+    max-width: 400px;
+    min-width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ==========================================================================================================================
+                CHOOSE YOUR ADVENTURE
+============================================================================================================================= */
+/* TEXT SET UP */
+.choose-your-adventure {
+    
+}
+.choose-your-adventure h1 {
+    font-family: "Figtree-700", sans-serif;
+    font-size: clamp(22px, 7.5vw, 42px);
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    line-height: 1;                               /* Relative line-height that scales with the font */
+    color: var(--brand-dark-text);
+    margin: 36px 16px;
+}
+.choose-your-adventure h2 {
+    font-family: "Figtree-700", sans-serif;
+    font-size: clamp(22px, 6vw, 36px);
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    line-height: 1;                               /* Relative line-height that scales with the font */
+    color: var(--brand-dark-text);
+    margin: 16px 8px;
+    width: 100%;
+}
+.choose-your-adventure h3 {
+    font-family: "Figtree-700", sans-serif;
+    font-size: clamp(14px, 6vw, 26px);
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    line-height: 1;                               /* Relative line-height that scales with the font */
+    color: var(--brand-blue);
+    margin: 12px 12px;
+}
+.choose-your-adventure p {
+    font-family: "Arial", sans-serif;
+    font-size: clamp(14px, 6vw, 22px);
+    font-weight: 400;
+    font-style: normal;
+    text-align: left;
+    color: var(--brand-dark-text);
+    margin: 0px 12px;
+}   
+.choose-your-adventure li {
+    font-family: "Arial", sans-serif;
+    font-size: clamp(14px, 6vw, 22px);
+    font-weight: 400;
+    font-style: normal;
+    text-align: left;
+    text-decoration: none;
+    list-style-type: none;
+    color: var(--brand-dark-text);
+    margin: 0px 12px;
+}  
+.brand-check {
+    color: var(--brand-blue);
+}
+
+/* ROUND EXPERIENCE CONTAINERS - DESKTOP SETUP */
+.experiences {
+    display: flex;
+    justify-content: center;                        /* Centers the two round containers on the page */
+    gap: 60px;                                      /* The space between the two containers */
+    padding: 20px 20px 80px 20px;                   /* Breathing room above and below the section -- slightly smaller on top for page flow */
+    max-width: 1400px;                              /* Prevents the section from stretching too wide on massive monitors */
+    margin: 0 auto;                                 /* Centers the wrapper itself */
+}
+
+.round-container {
+    flex: 1;                                        /* Makes both containers take up equal space */
+    min-width: 0;
+    max-width: 800px;                               
+    border-radius: 25px;                            /* Rounds the corners evenly witout stretching */
+    background-color: var(--brand-white);                    
+    
+    /* vv Flexbox code to center the text INSIDE the rounded square vv */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    padding: 30px;                                  /* Keeps text from touching the curved edges */
+    box-shadow: 0px 16px 8px rgba(0,0,0,0.3);     /* Adds a shadow beneath the containers */
+}
+
+.round-container img {
+    max-width: 100%;
+    border-radius: 25px;
+    align-self: center;                             /* Overrides the flex alignment that puts everything else to the left */
+    height: auto;
+}
+
+/* ---- Experience Container Buttons ---- */
+.round-container .book-button {
+    /* 1. The Magic Trick: Pins the button to the bottom */
+    margin-top: auto; 
+    
+    /* 2. Overrides the video banner margins to fit the container */
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    
+    /* 3. Forces the button to stretch across the bottom of the container */
+    width: 100%; 
+    
+    /* 4. A little extra breathing room around the button */
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+/* Hover/Active states specifically for the container buttons */
+.round-container .book-button:hover,
+.round-container .book-button:active {
+    background-color: var(--brand-dark-blue);
+    color: var(--brand-white);
+}
+
+/* ROUND CONTAINER - MOBILE OVERRIDES */
+@media (max-width: 980px) {
+    .experiences {
+        flex-direction: column;                     /* Stacks the rounded squares vertically! */
+        align-items: center;                        /* Keeps the stacked rounded squares in the middle of the screen */
+        gap: 40px;                                  /* Shrinks the space between the stacked rounded squares a bit */
+    }
+
+    .round-container {
+        width: 100%;                                /* Keeps them the same width when stacked on top of each other */
+    }
 }

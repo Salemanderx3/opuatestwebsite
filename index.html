@@ -1,23 +1,187 @@
 <!doctype html>
 
-<html>
+<html lang="en">
     <head>
-        <meta charset="utf-8">
+        <!-- character encoding settings -->
+          <meta charset="utf-8">
 
-        <title>Opua Adventures</title>
+        <!-- SEO metadata -->
+          <title>eFoil Lessons Sarasota | Water Seabob Rentals | Opua Adventures</title>
+
+        <!-- device viewport settings -->
+          <meta name="viewport" content="initial-scale=1.0, width=device-width">
+        
+        <!-- Google Fonts -->
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+        <!-- Google Icons -->
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        
+        
 
         <!-- Load external CSS styles -->
-        <link rel="stylesheet" href="styles.css">
-
+          <link rel="stylesheet" href="styles.css">
     </head>
 
     <body>
+      <!-- Load external JavaScript -->
+        <script src="scripts.js"> </script>
+        <!-- Font Awesome JavaScript that allows me to add cool icons; Icons may not show in preview, but will load on site -->
+        <script src="https://kit.fontawesome.com/11d30e4934.js" crossorigin="anonymous"></script>
 
-        <h1>My awesome space</h1>
+
+      <!-- ---- Header ---- -->
+      <header class="site-header">
+        <div class="logo">
+          <img id="opua-logo" src="images/opua-adventures.png" alt="Opua Adventures Logo">
+        </div>
+
+        <nav class="navbar">
+              <ul id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">eFoils</a></li>
+                <li><a href="#">Seabobs</a></li>
+                <li><a href="#">Packages</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="mobile-only-phone">
+                  <a href="tel:+19415991234">
+                    <i class="material-icons" style="font-size: 18px; vertical-align: -3px;">local_phone</i> (941)&nbsp;599-1234
+                  </a>
+                </li>
+              </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a href="tel:+19415991234" class="header-phone"><i class="material-icons" style="height:16px; vertical-align:-6px;">local_phone</i>(941)&nbsp;599-1234</a>
+          <a href="https://book.peek.com/s/3ab55455-c8b9-4c37-8b0d-84d485b9085d/6agpY" target="_blank" class="header-book">Book&nbsp;Now</a>
+        </div>
+
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle Navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+      </header>
+      
+
+      <!-- ---- Video Background ---- -->
+      <div class="video-container">
+        <div class="vimeo-background">
+          <iframe src="https://player.vimeo.com/video/1147004771?muted=1&autoplay=1&loop=1&background=1&app_id=122963" 
+                frameborder="0" 
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                allowfullscreen>
+          </iframe>
+        </div>
+
+        <!-- [Transparent Black Background Overlay] -->
+        <div class="video-overlay"></div>
+
+        <!-- [Text Content] -->
+        <div class="banner-content">
+          <h1>
+            Sarasota's Complete <br class="hide-at-320">
+            Water <br class="hide-at-1125">
+            Adventure Experience
+          </h1>
+
+          <div class="activity-list">
+              <ul>
+                <li>&#9992;<!-- Airplane Emoji -->&nbsp;Fly above the water on eFoils</li>
+                <li><i class="fa-solid fa-water"></i><!-- Wave Emoji -->&nbsp;Dive below with Seabobs</li>
+              </ul>
+          </div>
+          
+          <br>
+
+          <div class="check-list">
+             <ul>
+                <li>&#10004; Flite Authorized Partner &nbsp;</li>
+                <li>&#10004; Professional Instructors &nbsp;</li>
+                <li>&#10004; Free Delivery Available &nbsp;</li>
+                <li>&#10004; Ages 10+ Welcome</li>
+             </ul>
+          </div> 
+
+          <!-- [Book Here & Call Buttons] -->
+          <div class="book-and-call-buttons">
+            <a href="https://book.peek.com/s/3ab55455-c8b9-4c37-8b0d-84d485b9085d/6agpY" target="_blank" class="book-button"><i class="material-icons bookmark-icon">bookmark</i>Book Here</a>
+            <a href="tel:+19415991234" class="call-button"><i class="material-icons" style="height:16px; vertical-align:-6px;">local_phone</i>(941) 599-1234</a>
+          </div>
+
+          <br>
+
+            <p><i class="material-icons" style="vertical-align:-6px;">pin_drop</i>&nbsp;<b>Proudly Serving Sarasota:</b></p>
+            <p>Lido&nbsp;Key, Longboat&nbsp;Key, Bird&nbsp;Key, Siesta&nbsp;Key, Anna&nbsp;Maria&nbsp;Island</p>
+
+          <br>
+
+          <img id="flite-authorized-partner" src="images/flite-authorized-partner.png" alt="Flite Authorized Partner">
+       </div>
+      </div>
+
+
+      <!-- Choose Your Adventure Section -->
+      <section class="choose-your-adventure">
+        <h1> Choose Your Adventure </h1>
+        <h3> Two&nbsp;unique&nbsp;experiences, one&nbsp;amazing&nbsp;location</h3>
+        <div class="experiences">
+          <div class="round-container">
+            <img src="images/eFoil.png" alt="eFoils">
+            <h2> eFoil Adventures </h2>
+            <h3> Starting at $250 (Ages&nbsp;14&nbsp;&&nbsp;up) </h3>
+            <p> Fly above the water on electric hydrofoil boards.</p>
+            <p> Professional instruction included. </p>
+            <br>
+            <ul>
+                <li><span class="brand-check">&#10004;</span> 90-minute sessions</li>
+                <li><span class="brand-check">&#10004;</span> Ages 14+ (max 245 lbs)</li>
+                <li><span class="brand-check">&#10004;</span> Authorized Fliteschool</li>
+                <li><span class="brand-check">&#10004;</span> Flitescooter & Fliteboard options</li>
+                <li><span class="brand-check">&#10004;</span> Near Downtown Sarasota</li>
+            </ul>
+            <br>
+            <a href="https://book.peek.com/s/3ab55455-c8b9-4c37-8b0d-84d485b9085d/rlxa0" target="_blank" class="book-button"><i class="material-icons bookmark-icon">bookmark</i>Book eFoil Adventure</a>
+          </div>
+          <div class="round-container">
+            <img src="images/Seabob.png" alt="Seabobs">
+            <h2> Seabob Underwater Adventures </h2>
+            <h3> Starting at $180 (Ages&nbsp;10&nbsp;&&nbsp;up) </h3>
+            <p> Fly above the water on electric hydrofoil boards.</p>
+            <p> Professional instruction included. </p>
+            <br>
+            <ul>
+                <li><span class="brand-check">&#10004;</span> 60-minute sessions</li>
+                <li><span class="brand-check">&#10004;</span> Ages 10+ (no max weight)</li>
+                <li><span class="brand-check">&#10004;</span> All skill levels welcome</li>
+                <li><span class="brand-check">&#10004;</span> Free beach delivery</li>
+                <li><span class="brand-check">&#10004;</span> Goggles included</li>
+            </ul>
+            <br>
+            <a href="https://book.peek.com/s/3ab55455-c8b9-4c37-8b0d-84d485b9085d/p_wg54zw--899cdebc-8122-4512-a0cc-2bff881e5df8?mode=standalone" target="_blank" class="book-button"><i class="material-icons bookmark-icon">bookmark</i>Book Seabob Adventure</a>
+          </div> 
+        </div>
+      </section>
+       
         
-        <!-- Load external JavaScript -->
-        <script src="scripts.js"></script>
         
+     <!-- [Hamburger Button Listener -- KEEP AT THE BOTTOM JUST ABOVE /body] -->
+     <script>
+        // Grab the button and the menu from the HTML
+        const hamburger = document.getElementById('hamburger-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        // Add a click event to the button
+        hamburger.addEventListener('click', () => {
+        // Toggle the 'active' class on the menu
+        navLinks.classList.toggle('active');
+        // Toggle the 'active' class on the button
+        hamburger.classList.toggle('active');
+        });
+      </script>   
     </body>
 
 </html>
