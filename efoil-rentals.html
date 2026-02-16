@@ -1,0 +1,158 @@
+  <!doctype html>
+<html lang="en">
+    <head>
+        <!-- character encoding settings -->
+        <meta charset="utf-8">
+
+        <!-- SEO metadata -->
+        <title>Page Title Goes Here | Opua Adventures</title>
+
+        <!-- device viewport settings -->
+        <meta name="viewport" content="initial-scale=1.0, width=device-width">
+        
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+        <!-- Google Icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24..48,400,0..1,0" />
+
+        <!-- Load external CSS styles -->
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+
+    <body>
+        <!-- Font Awesome JavaScript that allows me to add cool icons; Icons may not show in preview, but will load on site -->
+        <script src="https://kit.fontawesome.com/11d30e4934.js" crossorigin="anonymous"></script>
+
+        <!-- ---- Header ---- -->
+        <header class="site-header">
+            <div class="logo">
+                <a href="index.html">
+                    <img id="opua-logo" src="images/opua-adventures.png" alt="Opua Adventures Logo">
+                </a>
+            </div>
+
+            <nav class="navbar">
+                <ul id="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="efoil-rentals.html" class="active">eFoils</a></li>
+                    <li><a href="#">Seabobs</a></li>
+                    <li><a href="#">Packages</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li class="mobile-only-phone">
+                        <a href="tel:+19415991234">
+                            <span class="material-symbols-rounded phone-icon">call</span>(941)&nbsp;599-1234
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="tel:+19415991234" class="header-phone"><span class="material-symbols-rounded phone-icon">call</span>(941)&nbsp;599-1234</a>
+                <a href="#" target="_blank" class="header-book">Book&nbsp;Now</a>
+            </div>
+
+            <button class="hamburger" id="hamburger-btn" aria-label="Toggle Navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </header>
+
+        <!-- Main Content - Needed for screen readers -->
+        <main>
+        <!-- Page Banner -->
+        <section class="page-banner efoil-banner">
+            <div class="banner-overlay"></div>
+            <div class="banner-content">
+                <h1>eFoil Adventures</h1>
+                <h3>Experience the thrill of flying above the water on electric hydrofoil boards.</h3>
+                <br>
+                <div class="check-list">
+                    <ul>
+                        <li>&#10004; Fly above the Water</li>
+                        <li>&#10004; Professional Instructors</li>
+                        <li>&#10004; Flite Authorized Partner</li>
+                        <li>&#10004; Ages 14+ Welcome</li>
+                    </ul>
+                </div>
+
+            </div>
+            
+        </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="custom-footer">
+            <div class="footer-container">
+                <div class="footer-col footer-col-logo">
+                    <img src="images/opua-adventures-white.png" alt="Opua Adventures Logo" class="footer-logo">
+                    <div class="social-icons">
+                        <a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col footer-col-about">
+                    <h4>About Opua Adventures</h4>
+                    <p>Soar above the water on a real-life magic carpet with our Flitescooters and Fliteboard eFoils. Dive beneath the waves and cruise like a dolphin on the powerful, one-of-a-kind Seabob. Choose from thrilling experiences designed for all skill levels — no experience needed, just a sense of adventure.</p>
+                    <p class="footer-legal">
+                        <a href="#">Privacy Policy</a> | <a href="#">Accessibility</a> | <a href="#">Terms and Conditions</a>
+                    </p>
+                </div>
+
+                <div class="footer-col footer-col-location">
+                    <h4>Where to Find Us</h4>
+                    <p><strong>Opua Adventures | Serving Sarasota</strong><br>
+                    Lido Key, Longboat Key, Bird Key, Siesta Key, Anna Maria Island</p>
+                </div>
+
+                <div class="footer-col footer-col-contact">
+                    <h4>Contact</h4>
+                    <p><a href="tel:+19415991234"><span class="material-symbols-rounded phone-icon">call</span> (941)&nbsp;599-1234</a><br>
+                    <a href="mailto:info@opuaadventures.com" class="mail-link">info@opuaadventures.com</a></p>
+                    <p>HOURS:<br>
+                    Mon&#45;Sat: 10am &#45; 6pm<br>
+                    Sun: 10am &#45; 4pm</p>
+                </div>
+            </div>
+        </footer>
+
+        <button id="scrollToTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
+            <i class="material-icons">keyboard_arrow_up</i>
+        </button>
+
+        <script>
+            // Hamburger Menu Logic
+            const hamburger = document.getElementById('hamburger-btn');
+            const navLinks = document.getElementById('nav-links');
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+
+            // Scroll to Top Logic
+            const scrollBtn = document.getElementById("scrollToTopBtn");
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 300) {
+                    scrollBtn.classList.add("show");
+                } else {
+                    scrollBtn.classList.remove("show");
+                }
+            });
+            scrollBtn.addEventListener("click", () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth" 
+                });
+            });
+        </script>   
+    </body>
+</html>

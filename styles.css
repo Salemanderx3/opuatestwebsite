@@ -1,4 +1,9 @@
 /* Place your CSS styles in this file */
+
+/* ==========================================================================================================================
+================================================= MASTER STYLES =============================================================          
+============================================================================================================================= */
+
 /* ==========================================================================================================================
                 COLOR PALETTE
 ============================================================================================================================= */
@@ -27,25 +32,58 @@
 /* ==========================================================================================================================
                 GOOGLE ICON GLOBAL STYLE FIXES
 ============================================================================================================================= */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+.icon-hollow {
+    font-variation-settings: 'FILL' 0 !important; 
+}
+
+.two-tone-icon {
+    /* 1. Force the icon to be solid so we have an inside to color! */
+    font-variation-settings: 'FILL' 1 !important; 
+    
+    /* 2. Set the FILL color (the inside) */
+    color: var(--brand-orange); 
+    
+    /* 3. Draw the OUTLINE around it (thickness and color) */
+    -webkit-text-stroke: 2px var(--brand-dark-blue); 
+}
+
 .bookmark-icon,
 .info-icon,
 .phone-icon,
 .pin-icon {
     vertical-align: -6px;
+    font-variation-settings: 'FILL' 1 !important; 
+}
+
+.bookmark-icon,
+.star-icon,
+.verified-icon {
+    color: var(--brand-orange);
 }
 
 .star-icon {
-    font-size: 32px;
+    font-size: 48px !important;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    font-variation-settings: 'FILL' 1 !important; 
 }
 
-.bookmark-icon,
-.star-icon {
-    color: var(--brand-orange);
-}
 
 /* ==========================================================================================================================
                     HTML
@@ -331,6 +369,183 @@ body {
 }
 
 /* ==========================================================================================================================
+                    CUSTOM FOOTER
+============================================================================================================================= */
+.custom-footer {
+    background-color: var(--brand-dark-text);
+    color: var(--brand-white);
+    padding: 60px 20px;
+    font-family: "Arial", sans-serif;
+    font-size: 15px;
+}
+
+/* ---- The Flexbox Container ---- */
+.custom-footer .footer-container {
+    display: flex;
+    justify-content: space-between;                       /* Spreads the 4 columns perfectly across the screen */
+    max-width: 1300px;
+    margin: 0 auto;
+    gap: 40px;
+    flex-wrap: wrap;                                      /* CRITICAL: Tells Flexbox to wrap to a new line if it runs out of space! */
+}
+
+/* ---- Individual Columns ---- */
+.footer-col {
+    flex: 1;                                                /* Tells each column to take up an equal fraction of the space */
+    min-width: 200px; 
+}
+
+/* We give the About column a little extra room because of the long paragraph */
+.footer-col-about { flex: 1.5; }
+.footer-col-logo { flex: 0.8; }
+
+/* ---- Typography ---- */
+.custom-footer h4 {
+    color: var(--brand-blue);
+    font-family: "Figtree", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.custom-footer p {
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.custom-footer strong {
+    font-weight: 700;
+}
+
+/* ---- Logo & Socials ---- */
+.custom-footer .footer-logo {
+    max-width: 100%;
+    height: auto;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;                                     /* Vertically centers the icon */
+    justify-content: center;                                 /* Horizontally centers the icon */
+    width: 38px;
+    height: 38px;
+    background-color: var(--brand-blue);
+    color: var(--brand-white);
+    border-radius: 50%;                                      /* Makes it a perfect circle! */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: var(--brand-dark-blue);
+    color: var(--brand-white) !important;
+    transform: translateY(-3px);                            /* Cute hover float effect :3 */
+}
+
+/* ---- Links & Accents ---- */
+.custom-footer a {
+    color: var(--brand-white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.custom-footer a:hover {
+    color: var(--brand-blue);
+}
+
+.custom-footer .blue-link,
+.footer-legal a {
+    color: var(--brand-blue);
+}
+
+.custom-footer .blue-link:hover,
+.footer-legal a:hover {
+    color: var(--brand-orange);
+}
+
+/* ---- Responsive: Tablet & Mobile ---- */
+@media (max-width: 1024px) {
+    .footer-col {
+        flex: 1 1 40%;                                      /* Tells Flexbox to take up 40% width, creating a 2x2 grid on tablets! */
+    }
+}
+
+@media (max-width: 650px) {
+    .footer-col {
+        flex: 1 1 100%;                                     /* Tells Flexbox to take up 100% width, stacking vertically on phones! */
+    }
+}
+
+/* ==========================================================================================================================
+                    SCROLL TO TOP BUTTON
+============================================================================================================================= */
+.scroll-top-btn {
+    position: fixed;                                        /* Pins it to the glass of the screen, not the page */
+    bottom: 30px;                                           /* 30px from the bottom edge */
+    right: 30px;                                            /* 30px from the right edge */
+    z-index: 99;                                            /* Forces it to float above EVERYTHING else */
+    
+    background-color: var(--brand-blue); 
+    color: var(--brand-white);
+    border: 2px solid var(--brand-white);
+    border-radius: 50%;                                     /* Makes it a perfect circle */
+    width: 50px;
+    height: 50px;
+    
+    /* Flexbox to perfectly center the arrow icon */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    
+    /* Hide it by default with a smooth fade transition */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.scroll-top-btn .material-icons {
+    font-size: 32px;                                        /* Makes the arrow nice and bold */
+}
+
+.scroll-top-btn:hover {
+    background-color: var(--brand-dark-blue);
+    transform: translateY(-3px);                            /* A cute little float effect when hovered :3 */
+}
+
+/* The magic class that JavaScript will add when users scroll down! */
+.scroll-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive adjustment for phones */
+@media (max-width: 600px) {
+    .scroll-top-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+
+/* ==========================================================================================================================
+============================================== HOME PAGE STYLES =============================================================          
+============================================================================================================================= */
+
+
+/* ==========================================================================================================================
                 VIDEO BANNER
 ============================================================================================================================= */
 /* --------------------------------------------------------------------------------------------
@@ -374,7 +589,7 @@ body {
 /* -------------------------------
     4. Black Background Overlay 
 ---------------------------------- */
-.video-overlay {
+.banner-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -385,7 +600,7 @@ body {
     z-index: 0; 
 }
 /* -------------------------
-    5. Text Content Styles 
+    5. Text Content Styles - Can be reused for other page banners!
 ---------------------------- */
 /* BANNER - DESKTOP SETUP */
 .banner-content {
@@ -403,7 +618,20 @@ body {
     font-style: normal;
     line-height: 1.2;                               /* Relative line-height that scales with the font */
     color: var(--brand-white);
-    margin: 36px 16px;
+    margin: 16px 16px;
+}
+
+.banner-content h3 {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1.6px;
+    line-height: 24px;
+    color: var(--brand-white);
+    padding: 0px 10%;
+    margin: 0px 36px;
 }
 
 .banner-content p {
@@ -990,174 +1218,31 @@ body {
     }
 }
 
-/* ==========================================================================================================================
-                    CUSTOM FOOTER
-============================================================================================================================= */
-.custom-footer {
-    background-color: var(--brand-dark-text);
-    color: var(--brand-white);
-    padding: 60px 20px;
-    font-family: "Arial", sans-serif;
-    font-size: 15px;
-}
-
-/* ---- The Flexbox Container ---- */
-.custom-footer .footer-container {
-    display: flex;
-    justify-content: space-between;                       /* Spreads the 4 columns perfectly across the screen */
-    max-width: 1300px;
-    margin: 0 auto;
-    gap: 40px;
-    flex-wrap: wrap;                                      /* CRITICAL: Tells Flexbox to wrap to a new line if it runs out of space! */
-}
-
-/* ---- Individual Columns ---- */
-.footer-col {
-    flex: 1;                                                /* Tells each column to take up an equal fraction of the space */
-    min-width: 200px; 
-}
-
-/* We give the About column a little extra room because of the long paragraph */
-.footer-col-about { flex: 1.5; }
-.footer-col-logo { flex: 0.8; }
-
-/* ---- Typography ---- */
-.custom-footer h4 {
-    color: var(--brand-blue);
-    font-family: "Figtree", sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.custom-footer p {
-    line-height: 1.6;
-    margin-bottom: 25px;
-}
-
-.custom-footer strong {
-    font-weight: 700;
-}
-
-/* ---- Logo & Socials ---- */
-.custom-footer .footer-logo {
-    max-width: 100%;
-    height: auto;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-}
-
-.social-icons a {
-    display: inline-flex;
-    align-items: center;                                     /* Vertically centers the icon */
-    justify-content: center;                                 /* Horizontally centers the icon */
-    width: 38px;
-    height: 38px;
-    background-color: var(--brand-blue);
-    color: var(--brand-white);
-    border-radius: 50%;                                      /* Makes it a perfect circle! */
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.social-icons a:hover {
-    background-color: var(--brand-dark-blue);
-    color: var(--brand-white) !important;
-    transform: translateY(-3px);                            /* Cute hover float effect :3 */
-}
-
-/* ---- Links & Accents ---- */
-.custom-footer a {
-    color: var(--brand-white);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.custom-footer a:hover {
-    color: var(--brand-blue);
-}
-
-.custom-footer .blue-link,
-.footer-legal a {
-    color: var(--brand-blue);
-}
-
-.custom-footer .blue-link:hover,
-.footer-legal a:hover {
-    color: var(--brand-orange);
-}
-
-/* ---- Responsive: Tablet & Mobile ---- */
-@media (max-width: 1024px) {
-    .footer-col {
-        flex: 1 1 40%;                                      /* Tells Flexbox to take up 40% width, creating a 2x2 grid on tablets! */
-    }
-}
-
-@media (max-width: 650px) {
-    .footer-col {
-        flex: 1 1 100%;                                     /* Tells Flexbox to take up 100% width, stacking vertically on phones! */
-    }
-}
 
 /* ==========================================================================================================================
-                    SCROLL TO TOP BUTTON
+============================================== EFOIL RENTAL STYLES ==========================================================          
 ============================================================================================================================= */
-.scroll-top-btn {
-    position: fixed;                                        /* Pins it to the glass of the screen, not the page */
-    bottom: 30px;                                           /* 30px from the bottom edge */
-    right: 30px;                                            /* 30px from the right edge */
-    z-index: 99;                                            /* Forces it to float above EVERYTHING else */
-    
-    background-color: var(--brand-blue); 
-    color: var(--brand-white);
-    border: 2px solid var(--brand-white);
-    border-radius: 50%;                                     /* Makes it a perfect circle */
-    width: 50px;
-    height: 50px;
-    
-    /* Flexbox to perfectly center the arrow icon */
+
+.page-banner {
+    position: relative;
+    width: 100%;
+    height: 400px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    
-    cursor: pointer;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    
-    /* Hide it by default with a smooth fade transition */
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 60px; /* Gives breathing room before the next section starts */
 }
 
-.scroll-top-btn .material-icons {
-    font-size: 32px;                                        /* Makes the arrow nice and bold */
+/* --- Specific Background Images --- */
+.efoil-banner {
+    background-image: url('images/opua-banner-efoil02.jpg'); 
 }
 
-.scroll-top-btn:hover {
-    background-color: var(--brand-dark-blue);
-    transform: translateY(-3px);                            /* A cute little float effect when hovered :3 */
+.efoil-banner .banner-content h1 {
+    font-size: clamp(38px, 6vw, 72px);
 }
 
-/* The magic class that JavaScript will add when users scroll down! */
-.scroll-top-btn.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Responsive adjustment for phones */
-@media (max-width: 600px) {
-    .scroll-top-btn {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
-    }
-}
-
+/* --- Banner Typography --- */
