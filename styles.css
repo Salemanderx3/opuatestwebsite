@@ -6,6 +6,9 @@
     --brand-blue: #56B4E9;
     --brand-dark-blue: #0072B2;
     --brand-dark-text: #333333;
+    --brand-light-blue: #99DAFF;
+    --brand-light-grey: #f5f5f5;
+    --brand-light-text: #555555;
     --brand-orange: #FFB00D;
     --brand-white: #FFFFFF;
 }
@@ -21,6 +24,28 @@
     font-style: normal; 
     }
 
+/* ==========================================================================================================================
+                GOOGLE ICON GLOBAL STYLE FIXES
+============================================================================================================================= */
+.bookmark-icon,
+.info-icon,
+.phone-icon,
+.pin-icon {
+    vertical-align: -6px;
+}
+
+.star-icon {
+    font-size: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.bookmark-icon,
+.star-icon {
+    color: var(--brand-orange);
+}
 
 /* ==========================================================================================================================
                     HTML
@@ -36,9 +61,11 @@
                     BODY
 ============================================================================================================================= */
 body {
-    background-color: #f5f5f5;
+    background-color: var(--brand-light-grey);
     margin: 0;
     padding: 0;
+    min-width: 320px;
+    overflow-x: hidden;
 
 }
 
@@ -153,8 +180,9 @@ body {
     color: var(--brand-blue);
 }
 
-.navbar a:active {
-    color: var(--brand-blue);
+.navbar a.active {
+    color: var(--brand-blue) !important;
+    font-weight: 700;
 }
 
 .navbar ul {
@@ -415,7 +443,7 @@ body {
     text-align: center;
     letter-spacing: 1.6px;
     line-height: 24px;
-    color: #FFFFFF;
+    color: var(--brand-white);
     margin: 0px 18px;
 }
 
@@ -448,7 +476,7 @@ body {
     
 }
 
-/* BUTTONS - DESKTOP SETUP */
+/* ALL BUTTONS & BUTTON ICONS - DESKTOP SETUP */
 .book-button,
 .call-button {
     font-family: "Trebuchet MS", sans-serif;
@@ -468,18 +496,33 @@ body {
     transition: all 0.3s ease;
 }
 
+.learn-button {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--brand-white);
+    background-color: var(--brand-dark-text);
+    border: none;
+    border-radius: 25px;
+    padding: 16px 36px;
+    margin: 8px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
 .book-button:hover,
-.call-button:hover {
+.call-button:hover,
+.learn-button:hover {
     background-color: var(--brand-dark-blue);
 }
 
-.bookmark-icon {
-    color: var(--brand-orange);
-    height: 16px;
-    vertical-align: -6px;
-}
 
-/* BUTTONS - MOBILE OVERRIDE */
+
+/* ALL BUTTONS - MOBILE OVERRIDE */
 @media (max-width: 600px) {
     .book-button,
     .call-button {
@@ -509,12 +552,10 @@ body {
 }
 
 /* ==========================================================================================================================
-                CHOOSE YOUR ADVENTURE
+                CHOOSE YOUR ADVENTURE SECTION
 ============================================================================================================================= */
 /* TEXT SET UP */
-.choose-your-adventure {
-    
-}
+
 .choose-your-adventure h1 {
     font-family: "Figtree-700", sans-serif;
     font-size: clamp(22px, 7.5vw, 42px);
@@ -544,7 +585,7 @@ body {
     text-align: center;
     line-height: 1;                               /* Relative line-height that scales with the font */
     color: var(--brand-blue);
-    margin: 12px 12px;
+    margin: 0px 12px;
 }
 .choose-your-adventure p {
     font-family: "Arial", sans-serif;
@@ -570,8 +611,8 @@ body {
     color: var(--brand-blue);
 }
 
-/* ROUND EXPERIENCE CONTAINERS - DESKTOP SETUP */
-.experiences {
+/* ROUND ADVENTURE CONTAINERS - DESKTOP SETUP */
+.adventure-content {
     display: flex;
     justify-content: center;                        /* Centers the two round containers on the page */
     gap: 60px;                                      /* The space between the two containers */
@@ -604,13 +645,16 @@ body {
     height: auto;
 }
 
-/* ---- Experience Container Buttons ---- */
+/* ---- Adventure Content Buttons ---- */
 .round-container .book-button {
-    /* 1. The Magic Trick: Pins the button to the bottom */
+    /* 1. The Magic Trick: Pins the button to the bottom, also forces the learn button down to the bottom as well */
     margin-top: auto; 
-    
+}
+
+.round-container .book-button,
+.round-container .learn-button {
     /* 2. Overrides the video banner margins to fit the container */
-    margin-bottom: 0;
+    margin-bottom: 0px;
     margin-left: 0;
     margin-right: 0;
     
@@ -618,8 +662,8 @@ body {
     width: 100%; 
     
     /* 4. A little extra breathing room around the button */
-    padding-top: 18px;
-    padding-bottom: 18px;
+    padding-top: 12px;
+    padding-bottom: 12px;
 }
 
 /* Hover/Active states specifically for the container buttons */
@@ -631,7 +675,7 @@ body {
 
 /* ROUND CONTAINER - MOBILE OVERRIDES */
 @media (max-width: 980px) {
-    .experiences {
+    .adventure-content {
         flex-direction: column;                     /* Stacks the rounded squares vertically! */
         align-items: center;                        /* Keeps the stacked rounded squares in the middle of the screen */
         gap: 40px;                                  /* Shrinks the space between the stacked rounded squares a bit */
@@ -641,3 +685,479 @@ body {
         width: 100%;                                /* Keeps them the same width when stacked on top of each other */
     }
 }
+
+/* ==========================================================================================================================
+                ULTIMATE ADVENTURE PACKAGE SECTION
+============================================================================================================================= */
+.ultimate-adventure-package {
+    background-color: var(--brand-blue); 
+    padding: 20px 20px 40px 20px;
+    color: var(--brand-white);
+}
+
+/* ---- Header Text ---- */
+.package-header {
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto 40px auto;
+}
+.package-header h1 {
+    font-family: "Figtree", sans-serif;
+    font-size: clamp(28px, 6vw, 48px);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.package-header h3 {
+    font-family: "Figtree", sans-serif;
+    font-size: clamp(14px, 3vw, 18px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+.package-header p {
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ---- 2-Column Layout ---- */
+.package-content {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 60px;
+    align-items: center;                               /* Keeps the card and the list vertically centered with each other */
+}
+
+/* ---- Left Column: Features ---- */
+.package-features {
+    flex: 1;
+}
+.package-features h2 {
+    font-family: "Figtree", sans-serif;
+    font-size: clamp(24px, 5vw, 36px);
+    margin-bottom: 25px;
+}
+.package-features ul {
+    list-style: none;
+    padding: 0;
+}
+.package-features li {
+    font-family: "Arial", sans-serif;
+    font-size: clamp(16px, 5vw, 22px);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ---- Right Column: Pricing Card ---- */
+.package-pricing {
+    flex: 1;
+    background-color: var(--brand-light-blue);
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0px 16px 8px rgba(0,0,0,0.3);       /* Adds a shadow beneath the containers */
+}
+.price-amount {
+    font-family: "Figtree", sans-serif;
+    font-size: clamp(40px, 8vw, 72px);
+    font-weight: 700;
+    color: var(--brand-white);
+    margin-bottom: 25px;
+    line-height: 1;
+}
+.price-duration {
+    font-family: "Arial", sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--brand-dark-text);
+    margin-bottom: 15px;
+}
+.package-text {
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    color: var(--brand-dark-text);
+    margin-bottom: 25px;
+}
+
+.package-content .book-button {
+    margin: 0 0 30px 0;
+}
+.custom-note {
+    font-family: "Arial", sans-serif;
+    font-size: 14px !important;
+    color: var(--brand-dark-text);
+    margin-bottom: 0 !important;
+}
+
+/* ---- MOBILE OVERRIDE ---- */
+@media (max-width: 980px) {
+    .package-content {
+        flex-direction: column;                       /* Stacks the list on top of the card for phones! */
+        gap: 20px;
+    }
+    .package-pricing {
+        width: 100%;
+    }
+}
+
+/* ==========================================================================================================================
+                FEATURES SECTION (CSS GRID)
+============================================================================================================================= */
+.features-section {
+    background-color: var(--brand-white);
+    padding: 80px 20px;
+}
+
+/* ---- The Magic Grid Container ---- */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);              /* Creates 3 equal-width columns */
+    gap: 60px 40px;                                     /* 60px vertical gap between rows, 40px horizontal gap between columns */
+    max-width: 1200px;
+    margin: 0 auto;                                     /* Centers the whole grid block on the page */
+}
+
+/* ---- Individual Feature Items ---- */
+.feature-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.emoji-icon {
+    font-size: 32px;                                    /* Makes the emojis nice and large */
+    margin-bottom: 15px;
+    display: block;
+}
+
+.feature-item h4 {
+    font-family: "Figtree", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--brand-dark-text);
+    margin-bottom: 15px;
+}
+
+.feature-item p {
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    color: var(--brand-light-text);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ---- MOBILE OVERRIDE - Responsive Grid: Tablet (2 Columns) ---- */
+@media (max-width: 980px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);          /* Changes the grid from 3 to 2 columns */
+    }
+}
+
+/* ---- MOBILE OVERRIDE - Responsive Grid: Mobile (1 Column) ---- */
+@media (max-width: 600px) {
+    .features-grid {
+        grid-template-columns: 1fr;                     /* Stacks everything into a single vertical column */
+        gap: 40px;                                      /* Tightens up the gap for mobile scrolling */
+    }
+}
+
+/* ==========================================================================================================================
+                READY TO BOOK SECTION (CSS GRID -- in case of expanded packages)
+============================================================================================================================= */
+.ready-to-book {
+    background-color: var(--brand-light-grey);
+    padding: 40px 20px;
+}
+
+/* ---- Ready to Book Header ---- */
+.ready-to-book-header h1 {
+    font-family: "Figtree-700", sans-serif;
+    font-size: clamp(22px, 7.5vw, 42px);
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    line-height: 1;                               /* Relative line-height that scales with the font */
+    color: var(--brand-dark-text);
+    margin: 0px 16px;
+}
+
+.ready-to-book-header h3 {
+    font-family: "Figtree-700", sans-serif;
+    font-size: clamp(14px, 6vw, 26px);
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    line-height: 1;                               /* Relative line-height that scales with the font */
+    color: var(--brand-blue);
+    margin: 12px 12px;
+}
+/* ---- The Magic Grid Container ---- */
+.ready-to-book-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);              /* Creates 3 equal-width columns */
+    gap: 60px 40px;                                     /* 60px vertical gap between rows, 40px horizontal gap between columns */
+    max-width: 1200px;
+    margin: 0 auto;                                     /* Centers the whole grid block on the page */
+}
+
+/* ---- Ready to Book Items ---- */
+.ready-to-book-item {
+    text-align: center;
+    background-color: var(--brand-white);
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 0px 16px 8px rgba(0,0,0,0.3);         /* Adds a shadow beneath the containers */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ready-to-book-item h2 {
+    font-family: "Figtree-700", sans-serif;
+    font-size: clamp(18px, 6vw, 24px);
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    line-height: 1;                               /* Relative line-height that scales with the font */
+    color: var(--brand-dark-text);
+    margin: 16px 8px;
+    width: 100%;
+}
+.ready-to-book-item h3 {
+    font-family: "Figtree-700", sans-serif;
+    font-size: clamp(14px, 6vw, 22px);
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    line-height: 1;                               /* Relative line-height that scales with the font */
+    color: var(--brand-blue);
+    margin: 0px 12px;
+}
+
+.ready-to-book-item .book-button {
+    margin-top: auto;
+    margin-bottom: 0px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.ready-to-book .contact-button {
+    width: 100%;
+    max-width: 375px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--brand-white);
+    background-color: var(--brand-blue);
+    border: none;
+    border-radius: 25px;
+    padding: 16px 36px;
+    margin: 42px auto 0px auto;
+    text-align: center;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    gap: 8px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: var(--brand-dark-blue);
+}
+
+
+/* ---- MOBILE OVERRIDE - Responsive Grid: Mobile (1 Column) ---- */
+@media (max-width: 980px) {
+    .ready-to-book-grid {
+        grid-template-columns: 1fr;                     /* Stacks everything into a single vertical column */
+        max-width: 500px;
+        gap: 40px;                                      /* Tightens up the gap for mobile scrolling */
+    }
+    .ready-to-book .contact-button {
+       
+    }
+}
+
+/* ==========================================================================================================================
+                    CUSTOM FOOTER
+============================================================================================================================= */
+.custom-footer {
+    background-color: var(--brand-dark-text);
+    color: var(--brand-white);
+    padding: 60px 20px;
+    font-family: "Arial", sans-serif;
+    font-size: 15px;
+}
+
+/* ---- The Flexbox Container ---- */
+.custom-footer .footer-container {
+    display: flex;
+    justify-content: space-between;                       /* Spreads the 4 columns perfectly across the screen */
+    max-width: 1300px;
+    margin: 0 auto;
+    gap: 40px;
+    flex-wrap: wrap;                                      /* CRITICAL: Tells Flexbox to wrap to a new line if it runs out of space! */
+}
+
+/* ---- Individual Columns ---- */
+.footer-col {
+    flex: 1;                                                /* Tells each column to take up an equal fraction of the space */
+    min-width: 200px; 
+}
+
+/* We give the About column a little extra room because of the long paragraph */
+.footer-col-about { flex: 1.5; }
+.footer-col-logo { flex: 0.8; }
+
+/* ---- Typography ---- */
+.custom-footer h4 {
+    color: var(--brand-blue);
+    font-family: "Figtree", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.custom-footer p {
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.custom-footer strong {
+    font-weight: 700;
+}
+
+/* ---- Logo & Socials ---- */
+.custom-footer .footer-logo {
+    max-width: 100%;
+    height: auto;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;                                     /* Vertically centers the icon */
+    justify-content: center;                                 /* Horizontally centers the icon */
+    width: 38px;
+    height: 38px;
+    background-color: var(--brand-blue);
+    color: var(--brand-white);
+    border-radius: 50%;                                      /* Makes it a perfect circle! */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: var(--brand-dark-blue);
+    color: var(--brand-white) !important;
+    transform: translateY(-3px);                            /* Cute hover float effect :3 */
+}
+
+/* ---- Links & Accents ---- */
+.custom-footer a {
+    color: var(--brand-white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.custom-footer a:hover {
+    color: var(--brand-blue);
+}
+
+.custom-footer .blue-link,
+.footer-legal a {
+    color: var(--brand-blue);
+}
+
+.custom-footer .blue-link:hover,
+.footer-legal a:hover {
+    color: var(--brand-orange);
+}
+
+/* ---- Responsive: Tablet & Mobile ---- */
+@media (max-width: 1024px) {
+    .footer-col {
+        flex: 1 1 40%;                                      /* Tells Flexbox to take up 40% width, creating a 2x2 grid on tablets! */
+    }
+}
+
+@media (max-width: 650px) {
+    .footer-col {
+        flex: 1 1 100%;                                     /* Tells Flexbox to take up 100% width, stacking vertically on phones! */
+    }
+}
+
+/* ==========================================================================================================================
+                    SCROLL TO TOP BUTTON
+============================================================================================================================= */
+.scroll-top-btn {
+    position: fixed;                                        /* Pins it to the glass of the screen, not the page */
+    bottom: 30px;                                           /* 30px from the bottom edge */
+    right: 30px;                                            /* 30px from the right edge */
+    z-index: 99;                                            /* Forces it to float above EVERYTHING else */
+    
+    background-color: var(--brand-blue); 
+    color: var(--brand-white);
+    border: 2px solid var(--brand-white);
+    border-radius: 50%;                                     /* Makes it a perfect circle */
+    width: 50px;
+    height: 50px;
+    
+    /* Flexbox to perfectly center the arrow icon */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    
+    /* Hide it by default with a smooth fade transition */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.scroll-top-btn .material-icons {
+    font-size: 32px;                                        /* Makes the arrow nice and bold */
+}
+
+.scroll-top-btn:hover {
+    background-color: var(--brand-dark-blue);
+    transform: translateY(-3px);                            /* A cute little float effect when hovered :3 */
+}
+
+/* The magic class that JavaScript will add when users scroll down! */
+.scroll-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive adjustment for phones */
+@media (max-width: 600px) {
+    .scroll-top-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+}
+

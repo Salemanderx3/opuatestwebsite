@@ -17,7 +17,7 @@
           <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
         <!-- Google Icons -->
-          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round" rel="stylesheet">
         
         
 
@@ -40,7 +40,7 @@
 
         <nav class="navbar">
               <ul id="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="#">eFoils</a></li>
                 <li><a href="#">Seabobs</a></li>
                 <li><a href="#">Packages</a></li>
@@ -48,15 +48,15 @@
                 <li><a href="#">Contact</a></li>
                 <li class="mobile-only-phone">
                   <a href="tel:+19415991234">
-                    <i class="material-icons" style="font-size: 18px; vertical-align: -3px;">local_phone</i> (941)&nbsp;599-1234
+                    <i class="material-icons phone-icon">local_phone</i> (941)&nbsp;599-1234
                   </a>
                 </li>
               </ul>
         </nav>
 
         <div class="header-actions">
-          <a href="tel:+19415991234" class="header-phone"><i class="material-icons" style="height:16px; vertical-align:-6px;">local_phone</i>(941)&nbsp;599-1234</a>
-          <a href="https://book.peek.com/s/3ab55455-c8b9-4c37-8b0d-84d485b9085d/6agpY" target="_blank" class="header-book">Book&nbsp;Now</a>
+          <a href="tel:+19415991234" class="header-phone"><i class="material-icons phone-icon">local_phone</i>(941)&nbsp;599-1234</a>
+          <a href="#" target="_blank" class="header-book">Book&nbsp;Now</a>
         </div>
 
         <button class="hamburger" id="hamburger-btn" aria-label="Toggle Navigation">
@@ -108,13 +108,13 @@
 
           <!-- [Book Here & Call Buttons] -->
           <div class="book-and-call-buttons">
-            <a href="https://book.peek.com/s/3ab55455-c8b9-4c37-8b0d-84d485b9085d/6agpY" target="_blank" class="book-button"><i class="material-icons bookmark-icon">bookmark</i>Book Here</a>
-            <a href="tel:+19415991234" class="call-button"><i class="material-icons" style="height:16px; vertical-align:-6px;">local_phone</i>(941) 599-1234</a>
+            <a href="#" target="_blank" class="book-button"><i class="material-icons bookmark-icon">bookmark</i>Book Here</a>
+            <a href="tel:+19415991234" class="call-button"><i class="material-icons phone-icon">local_phone</i>(941)&nbsp;599-1234</a>
           </div>
 
           <br>
 
-            <p><i class="material-icons" style="vertical-align:-6px;">pin_drop</i>&nbsp;<b>Proudly Serving Sarasota:</b></p>
+            <p><i class="material-icons pin-icon">pin_drop</i>&nbsp;<b>Proudly Serving Sarasota:</b></p>
             <p>Lido&nbsp;Key, Longboat&nbsp;Key, Bird&nbsp;Key, Siesta&nbsp;Key, Anna&nbsp;Maria&nbsp;Island</p>
 
           <br>
@@ -126,15 +126,22 @@
 
       <!-- Choose Your Adventure Section -->
       <section class="choose-your-adventure">
-        <h1> Choose Your Adventure </h1>
-        <h3> Two&nbsp;unique&nbsp;experiences, one&nbsp;amazing&nbsp;location</h3>
-        <div class="experiences">
+
+        <div class="adventure-header">
+          <h1> Choose Your Adventure </h1>
+          <h3> Two&nbsp;unique&nbsp;experiences, one&nbsp;amazing&nbsp;location</h3>
+          <br>
+        </div>
+
+        <div class="adventure-content">
+
+          <!-- eFoil Adventure Container -->
           <div class="round-container">
             <img src="images/eFoil.png" alt="eFoils">
             <h2> eFoil Adventures </h2>
             <h3> Starting at $250 (Ages&nbsp;14&nbsp;&&nbsp;up) </h3>
-            <p> Fly above the water on electric hydrofoil boards.</p>
-            <p> Professional instruction included. </p>
+            <br>
+            <p> Fly <b>above the water</b> on electric hydrofoil boards. Professional instruction included. </p>
             <br>
             <ul>
                 <li><span class="brand-check">&#10004;</span> 90-minute sessions</li>
@@ -144,14 +151,17 @@
                 <li><span class="brand-check">&#10004;</span> Near Downtown Sarasota</li>
             </ul>
             <br>
-            <a href="https://book.peek.com/s/3ab55455-c8b9-4c37-8b0d-84d485b9085d/rlxa0" target="_blank" class="book-button"><i class="material-icons bookmark-icon">bookmark</i>Book eFoil Adventure</a>
+            <a href="#" target="_blank" class="book-button"><i class="material-icons bookmark-icon">bookmark</i>Book eFoil Adventure</a>
+            <a href="#" target="_blank" class="learn-button"><i class="material-icons info-icon">info_outline</i>&nbsp;Learn More</a>
           </div>
+
+          <!-- Seabob Adventure Container -->
           <div class="round-container">
             <img src="images/Seabob.png" alt="Seabobs">
-            <h2> Seabob Underwater Adventures </h2>
+            <h2> Seabob Adventures </h2>
             <h3> Starting at $180 (Ages&nbsp;10&nbsp;&&nbsp;up) </h3>
-            <p> Fly above the water on electric hydrofoil boards.</p>
-            <p> Professional instruction included. </p>
+            <br>
+            <p> Explore <b>underwater</b> like a dolphin with our exclusive Seabob scooters.</p>
             <br>
             <ul>
                 <li><span class="brand-check">&#10004;</span> 60-minute sessions</li>
@@ -161,26 +171,211 @@
                 <li><span class="brand-check">&#10004;</span> Goggles included</li>
             </ul>
             <br>
-            <a href="https://book.peek.com/s/3ab55455-c8b9-4c37-8b0d-84d485b9085d/p_wg54zw--899cdebc-8122-4512-a0cc-2bff881e5df8?mode=standalone" target="_blank" class="book-button"><i class="material-icons bookmark-icon">bookmark</i>Book Seabob Adventure</a>
+            <a href="#" target="_blank" class="book-button"><i class="material-icons bookmark-icon">bookmark</i>Book Seabob Adventure</a>
+            <a href="#" target="_blank" class="learn-button"><i class="material-icons info-icon">info_outline</i>&nbsp;Learn More</a>
           </div> 
+
         </div>
       </section>
-       
-        
-        
-     <!-- [Hamburger Button Listener -- KEEP AT THE BOTTOM JUST ABOVE /body] -->
-     <script>
-        // Grab the button and the menu from the HTML
-        const hamburger = document.getElementById('hamburger-btn');
-        const navLinks = document.getElementById('nav-links');
 
-        // Add a click event to the button
-        hamburger.addEventListener('click', () => {
-        // Toggle the 'active' class on the menu
-        navLinks.classList.toggle('active');
-        // Toggle the 'active' class on the button
-        hamburger.classList.toggle('active');
-        });
+      <!-- Ultimate Adventure Package Section -->
+      <section class="ultimate-adventure-package">
+
+        <div class="package-header">
+          <h1>Ultimate Adventure Package</h1>
+          <h3>The complete Opua Adventures Experience</h3>
+          <p>Soar above the water on a real-life magic carpet with our Flitescooters and Fliteboard eFoils. Dive beneath the waves and cruise like a dolphin on the powerful, one-of-a-kind Seabob. Choose from thrilling experiences designed for all skill levels — no experience needed, just a sense of adventure.</p>
+        </div>
+
+        <div class="package-content">
+
+          <!-- Package Features -->
+          <div class="package-features">
+            <h2>What's Included:</h2>
+            <ul>
+              <li><i class="material-icons-round star-icon">star</i> 2 Seabob underwater adventures</li>
+              <li><i class="material-icons-round star-icon">star</i> 2 Flitescooter eFoil sessions</li>
+              <li><i class="material-icons-round star-icon">star</i> 2 Fliteboard eFoil experiences</li>
+              <li><i class="material-icons-round star-icon">star</i> Professional instruction for all activities</li>
+              <li><i class="material-icons-round star-icon">star</i> All safety equipment included</li>
+              <li><i class="material-icons-round star-icon">star</i> 2.5 hours of pure adventure</li>
+            </ul>
+          </div>
+
+          <!-- Package Pricing -->
+          <div class="package-pricing">
+            <div class="price-amount">$1,300</div>
+            <div class="price-duration">2.5 hours of adventure</div>
+            <p class="package-text">Perfect for groups, special occasions, or the ultimate adventure seeker</p>
+
+            <a href="#" target="_blank" class="book-button"><i class="material-icons bookmark-icon">bookmark</i>Book Ultimate Package</a>
+
+            <p class="custom-note"><em>Call for a split day and custom packages.</em></p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="features-section">
+        <div class="features-grid">
+            
+            <div class="feature-item">
+                <span class="emoji-icon">🏆</span>
+                <h4>Flite Authorized Partner</h4>
+                <p>Opua Adventures is a Flite Authorized Reseller, Fliteschool and Flite Service Center.</p>
+            </div>
+
+            <div class="feature-item">
+                <span class="emoji-icon">🎯</span>
+                <h4>Only Complete Experience</h4>
+                <p>The only place in Sarasota offering eFoil and SeaBob experiences.</p>
+            </div>
+
+            <div class="feature-item">
+                <span class="emoji-icon">👨‍🏫</span>
+                <h4>Expert Instructors</h4>
+                <p>Professional trainers Seth and Dustin ensure your safety and maximize your fun on the water.</p>
+            </div>
+
+            <div class="feature-item">
+                <span class="emoji-icon">🚚</span>
+                <h4>Convenient Service</h4>
+                <p>Free SeaBob delivery to specific beach locations, Full certified service center on Flite board eFoils.</p>
+            </div>
+
+            <div class="feature-item">
+                <span class="emoji-icon">👨‍👩‍👧‍👦</span>
+                <h4>All Ages Welcome</h4>
+                <p>Activities for ages 10+ mean the whole family can enjoy adventures together.</p>
+            </div>
+
+            <div class="feature-item">
+                <span class="emoji-icon">🏝️</span>
+                <h4>Prime Locations</h4>
+                <p>Beautiful Sarasota waters, Siesta Key, Longboat Key, and Lido Beach – the best spots for water adventures in sunny Florida!</p>
+            </div>
+
+        </div>
+      </section>
+    
+      <!-- Ready to Book Your Adventure? Section -->
+      <section class="ready-to-book">
+
+        <div class="ready-to-book-header">
+          <h1>Ready to Book Your Adventure?</h1>
+          <h3>Choose your experience and book instantly online</h3>
+        </div>
+
+        <br>
+
+        <div class="ready-to-book-grid">
+          <div class="ready-to-book-item">
+            <h2>eFoil Adventure</h2>
+            <h3>From&nbsp;$250 &bull; 90&nbsp;minutes</h3>
+            <br>
+            <a href="#" target="_blank" class="book-button"><i class="material-icons bookmark-icon">bookmark</i>Book Now</a>
+          </div>
+          <div class="ready-to-book-item">
+            <h2>Seabob Adventure</h2>
+            <h3>From&nbsp;$180 &bull; 60&nbsp;minutes</h3>
+            <br>
+            <a href="#" target="_blank" class="book-button"><i class="material-icons bookmark-icon">bookmark</i>Book Now</a>
+          </div>  
+          <div class="ready-to-book-item">
+            <h2>Ultimate Adventure Package</h2>
+            <h3>$1,300 &bull; 2.5&nbsp;hours</h3>
+            <br>
+            <a href="#" target="_blank" class="book-button"><i class="material-icons bookmark-icon">bookmark</i>Book Now</a>
+          </div>  
+
+        </div>
+        <a href="#" target="_blank" class="contact-button"><i class="material-icons info-icon">info_outline</i>Questions? Contact&nbsp;us!</a>
+
+      </section>
+
+      <!-- Footer -->
+      <footer class="custom-footer">
+      
+        <div class="footer-container">
+
+          <div class="footer-col footer-col-logo">
+            <img src="images/opua-adventures.png" alt="Opua Adventures Logo" class="footer-logo">
+            <div class="social-icons">
+                  <a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                  <a href="#" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+              </div>
+          </div>
+
+          <div class="footer-col footer-col-about">
+            <h4>About Opua Adventures</h4>
+            <p>Soar above the water on a real-life magic carpet with our Flitescooters and Fliteboard eFoils. Dive beneath the waves and cruise like a dolphin on the powerful, one-of-a-kind Seabob. Choose from thrilling experiences designed for all skill levels — no experience needed, just a sense of adventure.</p>
+            <p class="footer-legal">
+              <a href="#">Privacy Policy</a> | <a href="#">Accessibility</a> | <a href="#">Terms and Conditions</a>
+            </p>
+          </div>
+
+          <div class="footer-col footer-col-location">
+            <h4>Where to Find Us</h4>
+            <p><strong>Opua Adventures | Serving Sarasota</strong><br>
+            Lido Key, Longboat Key, Bird Key, Siesta Key, Anna Maria Island</p>
+          </div>
+
+          <div class="footer-col footer-col-contact">
+            <h4>Contact</h4>
+            <p><a href="tel:+19415991234"><i class="material-icons phone-icon">local_phone</i> (941)&nbsp;599-1234</a><br>
+            <a href="mailto:info@opuaadventures.com" class="mail-link">info@opuaadventures.com</a></p>
+
+            <p>HOURS:<br>
+              Mon&#45;Sat: 10am &#45; 6pm<br>
+              Sun: 10am &#45; 4pm</p>
+          </div>
+
+        </div>
+      </footer>
+
+      <!-- Scroll to Top Button -->
+      <button id="scrollToTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
+        <i class="material-icons">keyboard_arrow_up</i>
+      </button>
+
+      
+      <script>
+        // [Hamburger Button Listener -- KEEP AT THE BOTTOM JUST ABOVE body]
+          // 1. Grab the button and the menu from the HTML
+          const hamburger = document.getElementById('hamburger-btn');
+          const navLinks = document.getElementById('nav-links');
+          // 2. Add a click event to the button
+          hamburger.addEventListener('click', () => {
+          // 3. Toggle the 'active' class on the menu
+          navLinks.classList.toggle('active');
+          // 4. Toggle the 'active' class on the button
+          hamburger.classList.toggle('active');
+          });
+
+        // [Scroll Button Script -- KEEP AT THE BOTTOM JUST ABOVE body]
+          // 1. Grab the scroll button from the HTML
+          const scrollBtn = document.getElementById("scrollToTopBtn");
+          // 2. Listen to the window for any scrolling
+          window.addEventListener("scroll", () => {
+          // If we scroll down more than 300 pixels, add the 'show' class to fade it in!
+          if (window.scrollY > 300) {
+              scrollBtn.classList.add("show");
+          } else {
+              // Note: If we go back near the top, remove the class to fade it out!
+              scrollBtn.classList.remove("show");
+          }
+          });
+          // 3. Listen for a click on the button
+            scrollBtn.addEventListener("click", () => {
+          // Scroll the window back to coordinates 0,0 (the absolute top)
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth" // This makes it glide up elegantly instead of instantly teleporting!
+            });
+          });
       </script>   
     </body>
 
